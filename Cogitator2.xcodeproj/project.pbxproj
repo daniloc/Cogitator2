@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */; };
+		1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B022AEACF6700B4C985 /* Persistence.swift */; };
+		1FFF8B062AEACF6700B4C985 /* Cogitator2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */; };
+		1FFF8B082AEACF6700B4C985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B072AEACF6700B4C985 /* ContentView.swift */; };
+		1FFF8B0A2AEACF6900B4C985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF8B092AEACF6900B4C985 /* Assets.xcassets */; };
+		1FFF8B0E2AEACF6900B4C985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF8B0D2AEACF6900B4C985 /* Preview Assets.xcassets */; };
+		1FFF8B192AEACF6900B4C985 /* Cogitator2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B182AEACF6900B4C985 /* Cogitator2Tests.swift */; };
+		1FFF8B232AEACF6900B4C985 /* Cogitator2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B222AEACF6900B4C985 /* Cogitator2UITests.swift */; };
+		1FFF8B252AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B242AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FFF8B152AEACF6900B4C985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FFF8AF52AEACF6700B4C985 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FFF8AFC2AEACF6700B4C985;
+			remoteInfo = Cogitator2;
+		};
+		1FFF8B1F2AEACF6900B4C985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FFF8AF52AEACF6700B4C985 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FFF8AFC2AEACF6700B4C985;
+			remoteInfo = Cogitator2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogitator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2App.swift; sourceTree = "<group>"; };
+		1FFF8B022AEACF6700B4C985 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1FFF8B052AEACF6700B4C985 /* Cogitator2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cogitator2.xcdatamodel; sourceTree = "<group>"; };
+		1FFF8B072AEACF6700B4C985 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1FFF8B092AEACF6900B4C985 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FFF8B0B2AEACF6900B4C985 /* Cogitator2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cogitator2.entitlements; sourceTree = "<group>"; };
+		1FFF8B0D2AEACF6900B4C985 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FFF8B0F2AEACF6900B4C985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FFF8B142AEACF6900B4C985 /* Cogitator2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cogitator2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFF8B182AEACF6900B4C985 /* Cogitator2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2Tests.swift; sourceTree = "<group>"; };
+		1FFF8B1E2AEACF6900B4C985 /* Cogitator2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cogitator2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFF8B222AEACF6900B4C985 /* Cogitator2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2UITests.swift; sourceTree = "<group>"; };
+		1FFF8B242AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FFF8AFA2AEACF6700B4C985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B112AEACF6900B4C985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B1B2AEACF6900B4C985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FFF8AF42AEACF6700B4C985 = {
+			isa = PBXGroup;
+			children = (
+				1FFF8AFF2AEACF6700B4C985 /* Cogitator2 */,
+				1FFF8B172AEACF6900B4C985 /* Cogitator2Tests */,
+				1FFF8B212AEACF6900B4C985 /* Cogitator2UITests */,
+				1FFF8AFE2AEACF6700B4C985 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FFF8AFE2AEACF6700B4C985 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */,
+				1FFF8B142AEACF6900B4C985 /* Cogitator2Tests.xctest */,
+				1FFF8B1E2AEACF6900B4C985 /* Cogitator2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FFF8AFF2AEACF6700B4C985 /* Cogitator2 */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */,
+				1FFF8B022AEACF6700B4C985 /* Persistence.swift */,
+				1FFF8B072AEACF6700B4C985 /* ContentView.swift */,
+				1FFF8B092AEACF6900B4C985 /* Assets.xcassets */,
+				1FFF8B0B2AEACF6900B4C985 /* Cogitator2.entitlements */,
+				1FFF8B0F2AEACF6900B4C985 /* Info.plist */,
+				1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */,
+				1FFF8B0C2AEACF6900B4C985 /* Preview Content */,
+			);
+			path = Cogitator2;
+			sourceTree = "<group>";
+		};
+		1FFF8B0C2AEACF6900B4C985 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B0D2AEACF6900B4C985 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1FFF8B172AEACF6900B4C985 /* Cogitator2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B182AEACF6900B4C985 /* Cogitator2Tests.swift */,
+			);
+			path = Cogitator2Tests;
+			sourceTree = "<group>";
+		};
+		1FFF8B212AEACF6900B4C985 /* Cogitator2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B222AEACF6900B4C985 /* Cogitator2UITests.swift */,
+				1FFF8B242AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift */,
+			);
+			path = Cogitator2UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FFF8AFC2AEACF6700B4C985 /* Cogitator2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFF8B282AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2" */;
+			buildPhases = (
+				1FFF8AF92AEACF6700B4C985 /* Sources */,
+				1FFF8AFA2AEACF6700B4C985 /* Frameworks */,
+				1FFF8AFB2AEACF6700B4C985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cogitator2;
+			productName = Cogitator2;
+			productReference = 1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1FFF8B132AEACF6900B4C985 /* Cogitator2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFF8B2B2AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2Tests" */;
+			buildPhases = (
+				1FFF8B102AEACF6900B4C985 /* Sources */,
+				1FFF8B112AEACF6900B4C985 /* Frameworks */,
+				1FFF8B122AEACF6900B4C985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FFF8B162AEACF6900B4C985 /* PBXTargetDependency */,
+			);
+			name = Cogitator2Tests;
+			productName = Cogitator2Tests;
+			productReference = 1FFF8B142AEACF6900B4C985 /* Cogitator2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1FFF8B1D2AEACF6900B4C985 /* Cogitator2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFF8B2E2AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2UITests" */;
+			buildPhases = (
+				1FFF8B1A2AEACF6900B4C985 /* Sources */,
+				1FFF8B1B2AEACF6900B4C985 /* Frameworks */,
+				1FFF8B1C2AEACF6900B4C985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FFF8B202AEACF6900B4C985 /* PBXTargetDependency */,
+			);
+			name = Cogitator2UITests;
+			productName = Cogitator2UITests;
+			productReference = 1FFF8B1E2AEACF6900B4C985 /* Cogitator2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FFF8AF52AEACF6700B4C985 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1FFF8AFC2AEACF6700B4C985 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					1FFF8B132AEACF6900B4C985 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 1FFF8AFC2AEACF6700B4C985;
+					};
+					1FFF8B1D2AEACF6900B4C985 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 1FFF8AFC2AEACF6700B4C985;
+					};
+				};
+			};
+			buildConfigurationList = 1FFF8AF82AEACF6700B4C985 /* Build configuration list for PBXProject "Cogitator2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FFF8AF42AEACF6700B4C985;
+			productRefGroup = 1FFF8AFE2AEACF6700B4C985 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FFF8AFC2AEACF6700B4C985 /* Cogitator2 */,
+				1FFF8B132AEACF6900B4C985 /* Cogitator2Tests */,
+				1FFF8B1D2AEACF6900B4C985 /* Cogitator2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FFF8AFB2AEACF6700B4C985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFF8B0E2AEACF6900B4C985 /* Preview Assets.xcassets in Resources */,
+				1FFF8B0A2AEACF6900B4C985 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B122AEACF6900B4C985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B1C2AEACF6900B4C985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FFF8AF92AEACF6700B4C985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */,
+				1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */,
+				1FFF8B082AEACF6700B4C985 /* ContentView.swift in Sources */,
+				1FFF8B062AEACF6700B4C985 /* Cogitator2.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B102AEACF6900B4C985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFF8B192AEACF6900B4C985 /* Cogitator2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFF8B1A2AEACF6900B4C985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFF8B252AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift in Sources */,
+				1FFF8B232AEACF6900B4C985 /* Cogitator2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FFF8B162AEACF6900B4C985 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FFF8AFC2AEACF6700B4C985 /* Cogitator2 */;
+			targetProxy = 1FFF8B152AEACF6900B4C985 /* PBXContainerItemProxy */;
+		};
+		1FFF8B202AEACF6900B4C985 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FFF8AFC2AEACF6700B4C985 /* Cogitator2 */;
+			targetProxy = 1FFF8B1F2AEACF6900B4C985 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1FFF8B262AEACF6900B4C985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1FFF8B272AEACF6900B4C985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		1FFF8B292AEACF6900B4C985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cogitator2/Cogitator2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cogitator2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cogitator2/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1FFF8B2A2AEACF6900B4C985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cogitator2/Cogitator2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cogitator2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cogitator2/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1FFF8B2C2AEACF6900B4C985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cogitator2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cogitator2";
+			};
+			name = Debug;
+		};
+		1FFF8B2D2AEACF6900B4C985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cogitator2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cogitator2";
+			};
+			name = Release;
+		};
+		1FFF8B2F2AEACF6900B4C985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cogitator2;
+			};
+			name = Debug;
+		};
+		1FFF8B302AEACF6900B4C985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BQHEV6DNR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danilocampos.Cogitator2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cogitator2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FFF8AF82AEACF6700B4C985 /* Build configuration list for PBXProject "Cogitator2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFF8B262AEACF6900B4C985 /* Debug */,
+				1FFF8B272AEACF6900B4C985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FFF8B282AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFF8B292AEACF6900B4C985 /* Debug */,
+				1FFF8B2A2AEACF6900B4C985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FFF8B2B2AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFF8B2C2AEACF6900B4C985 /* Debug */,
+				1FFF8B2D2AEACF6900B4C985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FFF8B2E2AEACF6900B4C985 /* Build configuration list for PBXNativeTarget "Cogitator2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFF8B2F2AEACF6900B4C985 /* Debug */,
+				1FFF8B302AEACF6900B4C985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1FFF8B052AEACF6700B4C985 /* Cogitator2.xcdatamodel */,
+			);
+			currentVersion = 1FFF8B052AEACF6700B4C985 /* Cogitator2.xcdatamodel */;
+			path = Cogitator2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1FFF8AF52AEACF6700B4C985 /* Project object */;
+}
