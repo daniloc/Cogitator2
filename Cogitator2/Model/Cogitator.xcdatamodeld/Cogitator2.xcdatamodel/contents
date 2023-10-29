@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22518" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PredictionResult" representedClassName="PredictionResult" syncable="YES" codeGenerationType="category">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="returnedData" optional="YES" attributeType="Transformable" customClassName="[Data]"/>
+        <relationship name="prompt" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Prompt" inverseName="results" inverseEntity="Prompt"/>
+        <relationship name="sketch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sketch" inverseName="results" inverseEntity="Sketch"/>
+    </entity>
+    <entity name="Prompt" representedClassName="Prompt" syncable="YES" codeGenerationType="category">
+        <attribute name="parameters" optional="YES" attributeType="Transformable" customClassName="[PromptParameter]"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredictionResult" inverseName="prompt" inverseEntity="PredictionResult"/>
+        <relationship name="sketch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sketch" inverseName="prompt" inverseEntity="Sketch"/>
+    </entity>
+    <entity name="Sketch" representedClassName="Sketch" syncable="YES" codeGenerationType="category">
+        <attribute name="hostURLString" optional="YES" attributeType="String"/>
+        <attribute name="inputSchemaData" optional="YES" attributeType="Binary" valueTransformerName="JSONSchemaTransformer" customClassName="[String:JSONSchema]"/>
+        <attribute name="lastEdited" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="prompt" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Prompt" inverseName="sketch" inverseEntity="Prompt"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PredictionResult" inverseName="sketch" inverseEntity="PredictionResult"/>
+    </entity>
+</model>

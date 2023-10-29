@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F81CAA82AED9FC50021773E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAA72AED9FC50021773E /* NetworkClient.swift */; };
+		1F81CAAB2AED9FD30021773E /* OpenAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1F81CAAA2AED9FD30021773E /* OpenAPIKit */; };
+		1F81CAAD2AEDCB780021773E /* SchemaFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAAC2AEDCB780021773E /* SchemaFieldView.swift */; };
+		1F81CAAF2AEDCDC60021773E /* JSONSchemaTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAAE2AEDCDC60021773E /* JSONSchemaTransformer.swift */; };
+		1F81CAB22AEDEFD60021773E /* Replicate in Frameworks */ = {isa = PBXBuildFile; productRef = 1F81CAB12AEDEFD60021773E /* Replicate */; };
+		1FB4D5342AECBB9500B6311E /* Cogitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */; };
+		1FB4D5352AECBB9C00B6311E /* PredictionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */; };
+		1FB4D5362AECBB9D00B6311E /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */; };
+		1FB4D5372AECBB9D00B6311E /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B502AEAE1B500B4C985 /* Prompt.swift */; };
+		1FDD417B2AED8FC3006287D5 /* PredictionResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */; };
+		1FDD417D2AED9422006287D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD417C2AED9422006287D5 /* Constants.swift */; };
 		1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */; };
 		1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B022AEACF6700B4C985 /* Persistence.swift */; };
-		1FFF8B062AEACF6700B4C985 /* Cogitator2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */; };
+		1FFF8B062AEACF6700B4C985 /* Cogitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */; };
 		1FFF8B082AEACF6700B4C985 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B072AEACF6700B4C985 /* ContentView.swift */; };
 		1FFF8B0A2AEACF6900B4C985 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF8B092AEACF6900B4C985 /* Assets.xcassets */; };
 		1FFF8B0E2AEACF6900B4C985 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF8B0D2AEACF6900B4C985 /* Preview Assets.xcassets */; };
 		1FFF8B192AEACF6900B4C985 /* Cogitator2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B182AEACF6900B4C985 /* Cogitator2Tests.swift */; };
 		1FFF8B232AEACF6900B4C985 /* Cogitator2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B222AEACF6900B4C985 /* Cogitator2UITests.swift */; };
 		1FFF8B252AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B242AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift */; };
+		1FFF8B392AEAE09100B4C985 /* PromptParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B382AEAE09100B4C985 /* PromptParameter.swift */; };
+		1FFF8B522AEAE1B500B4C985 /* PredictionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */; };
+		1FFF8B542AEAE1B500B4C985 /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */; };
+		1FFF8B562AEAE1B500B4C985 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B502AEAE1B500B4C985 /* Prompt.swift */; };
+		1FFF8B592AECA73400B4C985 /* SketchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B582AECA73400B4C985 /* SketchDetailView.swift */; };
+		1FFF8B5F2AECB49500B4C985 /* OptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B5E2AECB49500B4C985 /* OptionalBinding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F81CAA72AED9FC50021773E /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		1F81CAAC2AEDCB780021773E /* SchemaFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaFieldView.swift; sourceTree = "<group>"; };
+		1F81CAAE2AEDCDC60021773E /* JSONSchemaTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchemaTransformer.swift; sourceTree = "<group>"; };
+		1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultListView.swift; sourceTree = "<group>"; };
+		1FDD417C2AED9422006287D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogitator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2App.swift; sourceTree = "<group>"; };
 		1FFF8B022AEACF6700B4C985 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -50,6 +72,12 @@
 		1FFF8B1E2AEACF6900B4C985 /* Cogitator2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cogitator2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF8B222AEACF6900B4C985 /* Cogitator2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2UITests.swift; sourceTree = "<group>"; };
 		1FFF8B242AEACF6900B4C985 /* Cogitator2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1FFF8B382AEAE09100B4C985 /* PromptParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptParameter.swift; sourceTree = "<group>"; };
+		1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResult.swift; sourceTree = "<group>"; };
+		1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
+		1FFF8B502AEAE1B500B4C985 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		1FFF8B582AECA73400B4C985 /* SketchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchDetailView.swift; sourceTree = "<group>"; };
+		1FFF8B5E2AECB49500B4C985 /* OptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBinding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F81CAB22AEDEFD60021773E /* Replicate in Frameworks */,
+				1F81CAAB2AED9FD30021773E /* OpenAPIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F81CAA62AED9FB00021773E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1F81CAA72AED9FC50021773E /* NetworkClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		1FFF8AF42AEACF6700B4C985 = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +139,16 @@
 			isa = PBXGroup;
 			children = (
 				1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */,
-				1FFF8B022AEACF6700B4C985 /* Persistence.swift */,
 				1FFF8B072AEACF6700B4C985 /* ContentView.swift */,
+				1FFF8B582AECA73400B4C985 /* SketchDetailView.swift */,
+				1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */,
+				1F81CAA62AED9FB00021773E /* Network */,
+				1FFF8B5A2AECACB600B4C985 /* Supplemental Views */,
+				1FFF8B312AEADE9C00B4C985 /* Model */,
 				1FFF8B092AEACF6900B4C985 /* Assets.xcassets */,
+				1FFF8B5D2AECB47D00B4C985 /* Utility */,
 				1FFF8B0B2AEACF6900B4C985 /* Cogitator2.entitlements */,
 				1FFF8B0F2AEACF6900B4C985 /* Info.plist */,
-				1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */,
 				1FFF8B0C2AEACF6900B4C985 /* Preview Content */,
 			);
 			path = Cogitator2;
@@ -137,6 +179,37 @@
 			path = Cogitator2UITests;
 			sourceTree = "<group>";
 		};
+		1FFF8B312AEADE9C00B4C985 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */,
+				1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */,
+				1FFF8B502AEAE1B500B4C985 /* Prompt.swift */,
+				1FFF8B022AEACF6700B4C985 /* Persistence.swift */,
+				1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */,
+				1FFF8B382AEAE09100B4C985 /* PromptParameter.swift */,
+				1F81CAAE2AEDCDC60021773E /* JSONSchemaTransformer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1FFF8B5A2AECACB600B4C985 /* Supplemental Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F81CAAC2AEDCB780021773E /* SchemaFieldView.swift */,
+			);
+			path = "Supplemental Views";
+			sourceTree = "<group>";
+		};
+		1FFF8B5D2AECB47D00B4C985 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1FFF8B5E2AECB49500B4C985 /* OptionalBinding.swift */,
+				1FDD417C2AED9422006287D5 /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +226,10 @@
 			dependencies = (
 			);
 			name = Cogitator2;
+			packageProductDependencies = (
+				1F81CAAA2AED9FD30021773E /* OpenAPIKit */,
+				1F81CAB12AEDEFD60021773E /* Replicate */,
+			);
 			productName = Cogitator2;
 			productReference = 1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +302,10 @@
 				Base,
 			);
 			mainGroup = 1FFF8AF42AEACF6700B4C985;
+			packageReferences = (
+				1F81CAA92AED9FD30021773E /* XCRemoteSwiftPackageReference "OpenAPIKit" */,
+				1F81CAB02AEDEFD60021773E /* XCRemoteSwiftPackageReference "replicate-swift" */,
+			);
 			productRefGroup = 1FFF8AFE2AEACF6700B4C985 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,8 +350,19 @@
 			files = (
 				1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */,
 				1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */,
+				1F81CAAF2AEDCDC60021773E /* JSONSchemaTransformer.swift in Sources */,
+				1FFF8B592AECA73400B4C985 /* SketchDetailView.swift in Sources */,
+				1FDD417B2AED8FC3006287D5 /* PredictionResultListView.swift in Sources */,
+				1FFF8B562AEAE1B500B4C985 /* Prompt.swift in Sources */,
 				1FFF8B082AEACF6700B4C985 /* ContentView.swift in Sources */,
-				1FFF8B062AEACF6700B4C985 /* Cogitator2.xcdatamodeld in Sources */,
+				1FDD417D2AED9422006287D5 /* Constants.swift in Sources */,
+				1FFF8B542AEAE1B500B4C985 /* Sketch.swift in Sources */,
+				1F81CAAD2AEDCB780021773E /* SchemaFieldView.swift in Sources */,
+				1F81CAA82AED9FC50021773E /* NetworkClient.swift in Sources */,
+				1FFF8B522AEAE1B500B4C985 /* PredictionResult.swift in Sources */,
+				1FFF8B392AEAE09100B4C985 /* PromptParameter.swift in Sources */,
+				1FFF8B5F2AECB49500B4C985 /* OptionalBinding.swift in Sources */,
+				1FFF8B062AEACF6700B4C985 /* Cogitator.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB4D5352AECBB9C00B6311E /* PredictionResult.swift in Sources */,
+				1FB4D5362AECBB9D00B6311E /* Sketch.swift in Sources */,
 				1FFF8B192AEACF6900B4C985 /* Cogitator2Tests.swift in Sources */,
+				1FB4D5342AECBB9500B6311E /* Cogitator.xcdatamodeld in Sources */,
+				1FB4D5372AECBB9D00B6311E /* Prompt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,14 +726,46 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		1F81CAA92AED9FD30021773E /* XCRemoteSwiftPackageReference "OpenAPIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattpolzin/OpenAPIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+		1F81CAB02AEDEFD60021773E /* XCRemoteSwiftPackageReference "replicate-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/replicate/replicate-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F81CAAA2AED9FD30021773E /* OpenAPIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F81CAA92AED9FD30021773E /* XCRemoteSwiftPackageReference "OpenAPIKit" */;
+			productName = OpenAPIKit;
+		};
+		1F81CAB12AEDEFD60021773E /* Replicate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F81CAB02AEDEFD60021773E /* XCRemoteSwiftPackageReference "replicate-swift" */;
+			productName = Replicate;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
-		1FFF8B042AEACF6700B4C985 /* Cogitator2.xcdatamodeld */ = {
+		1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				1FFF8B052AEACF6700B4C985 /* Cogitator2.xcdatamodel */,
 			);
 			currentVersion = 1FFF8B052AEACF6700B4C985 /* Cogitator2.xcdatamodel */;
-			path = Cogitator2.xcdatamodeld;
+			path = Cogitator.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

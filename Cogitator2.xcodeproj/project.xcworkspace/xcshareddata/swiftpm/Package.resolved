@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "openapikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattpolzin/OpenAPIKit",
+      "state" : {
+        "revision" : "0f712cc345b9ca57c5ba4333b484de6c64c131d0",
+        "version" : "2.6.1"
+      }
+    },
+    {
+      "identity" : "replicate-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/replicate/replicate-swift",
+      "state" : {
+        "revision" : "1a088e2f29a6a466b1f792d1e38216bfc305c6f7",
+        "version" : "0.17.0"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams.git",
+      "state" : {
+        "revision" : "0d9ee7ea8c4ebd4a489ad7a73d5c6cad55d6fed3",
+        "version" : "5.0.6"
+      }
+    }
+  ],
+  "version" : 2
+}
