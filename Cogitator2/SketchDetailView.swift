@@ -10,7 +10,7 @@ import SwiftUI
 struct SketchDetailView: View {
     
     @ObservedObject var sketch: Sketch
-    @State private var inputSchema: [JSONSchema]?
+    @State private var inputSchema: [Parameter] = []
 
     
     func labeledField(title: String, binding: Binding<String>) -> some View {
@@ -26,19 +26,16 @@ struct SketchDetailView: View {
     var inputList: some View {
         List {
             
-            ForEach(inputSchema?.indices ?? 0..<0, id: \.self) { index in
+            ForEach(inputSchema) { parameter in
                 
-                if let input = inputSchema?[index] {
-                    SchemaFieldView(schemaField: input)
-                }
+                InputFieldView(parameter: parameter)
             }
         }
     }
     
-    func handleNewSchema(_ newSchema: [JSONSchema]) {
-
-                self.inputSchema = newSchema
-
+    func handleNewSchema(_ newSchema: [Parameter]) {
+        self.inputSchema = newSchema.sorted()
+        
     }
     
     var body: some View {
@@ -55,9 +52,9 @@ struct SketchDetailView: View {
         }
         .padding()
         .navigationTitle(sketch.title ?? "")
-        .onReceive(sketch.inputSchemaPublisher) { newSchema in
-            if let newSchema = newSchema {
-                handleNewSchema(newSchema)
+        .onReceive(sketch.prompt!.parameters.publisher) { _ in
+            if let newSchema = sketch.prompt?.keyedParameters.values {
+                handleNewSchema(Array(newSchema))
             } else {
                 inputSchema = []
             }

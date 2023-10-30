@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import OpenAPIKit
+import OpenAPIKit30
 import SwiftUI
 
 class NetworkClient: ObservableObject {
@@ -46,14 +46,13 @@ class NetworkClient: ObservableObject {
                     
                     if schema.key.rawValue == SchemaKeys.Input.rawValue {
                         
-                        var inputValues: [JSONSchema] = []
+                        var inputValues: [String:JSONSchema] = [:]
                         
                         print(schema.value.objectContext ?? "")
                         
                         schema.value.objectContext?.properties.forEach { property in
-                            inputValues.append(property.value)
+                            inputValues[property.key] = property.value
                         }
-                        
                         
                         DispatchQueue.main.sync {
                             sketch.inputSchema = inputValues

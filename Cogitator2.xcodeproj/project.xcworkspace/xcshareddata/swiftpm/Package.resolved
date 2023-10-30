@@ -3,10 +3,10 @@
     {
       "identity" : "openapikit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattpolzin/OpenAPIKit",
+      "location" : "https://github.com/mattpolzin/OpenAPIKit/",
       "state" : {
-        "revision" : "0f712cc345b9ca57c5ba4333b484de6c64c131d0",
-        "version" : "2.6.1"
+        "branch" : "3.0.0-rc.2",
+        "revision" : "b069168ebd9bac3704beab3aadff07b589aadeb2"
       }
     },
     {

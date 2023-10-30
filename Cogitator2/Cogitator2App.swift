@@ -11,9 +11,9 @@ import SwiftUI
 struct Cogitator2App: App {
     let persistenceController = PersistenceController.shared
     
-    init() {
-        ValueTransformer.setValueTransformer(JSONSchemaTransformer(), forName: JSONSchemaTransformer.name)
-    }
+//    init() {
+//        ValueTransformer.setValueTransformer(JSONSchemaTransformer(), forName: JSONSchemaTransformer.name)
+//    }
 
     var body: some Scene {
         WindowGroup {

@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 import Combine
-import OpenAPIKit
+import OpenAPIKit30
 
-public typealias JSONSchema = OpenAPIKit.JSONSchema
+public typealias JSONSchema = OpenAPIKit30.JSONSchema
 
 
 @objc(Sketch)
@@ -33,6 +33,7 @@ public class Sketch: NSManagedObject {
         
         self.title = "New Sketch"
         self.hostURLString = "http://greatwhite.local:5000"
+        addPrompt()
         observeURL()
         
         if let hostURLString {
@@ -43,7 +44,14 @@ public class Sketch: NSManagedObject {
     public override func awakeFromFetch() {
         super.awakeFromFetch()
         
+        addPrompt()
         observeURL()
+    }
+    
+    func addPrompt() {
+        if prompt == nil, let context = self.managedObjectContext {
+            prompt = Prompt(context: context)
+        }
     }
     
     func observeURL() {
@@ -71,22 +79,19 @@ public class Sketch: NSManagedObject {
 
     var client: NetworkClient = NetworkClient()
     
-    var inputSchemaPublisher: AnyPublisher<[JSONSchema]?, Never> {
-        return self.publisher(for: \.inputSchemaData)
-            .map { data in
-                data.flatMap { try? JSONDecoder().decode([JSONSchema].self, from: $0) }
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    var inputSchema: [JSONSchema]? {
+    var inputSchema: [String:JSONSchema]? {
         get {
             guard let data = self.inputSchemaData else { return nil }
-            return try? JSONDecoder().decode([JSONSchema].self, from: data)
+            return try? JSONDecoder().decode([String:JSONSchema].self, from: data)
         }
         set {
             self.inputSchemaData = try? JSONEncoder().encode(newValue)
+            
+            if let schema = newValue {
+                prompt?.updateSchema(schema)
+            }
         }
     }
+    
     
 }
