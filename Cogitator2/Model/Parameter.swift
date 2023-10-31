@@ -26,6 +26,37 @@ public class Parameter: NSManagedObject, Comparable {
             self.schemaData = try? JSONEncoder().encode(newValue)
         }
     }
+    
+
+    
+    var dictionary: [String: Any]? {
+        guard let fieldName = fieldName, let valueData = valueData, let schema = schema else {
+            return nil
+        }
+        
+        var value: Any?
+        
+        switch schema.value {
+        case .string:
+            value = String(data: valueData, encoding: .utf8)
+        case .integer:
+            value = try? JSONDecoder().decode(Int.self, from: valueData)
+        case .number:
+            value = try? JSONDecoder().decode(Float.self, from: valueData)
+        case .boolean:
+            value = try? JSONDecoder().decode(Bool.self, from: valueData)
+        // Add more cases for other types as needed
+        default:
+            // Handle unknown types if necessary
+            return nil
+        }
+        
+        guard let unwrappedValue = value else {
+            return nil
+        }
+        
+        return [fieldName: unwrappedValue]
+    }
 }
 
 //MARK - Bindings over underlying valueData storage

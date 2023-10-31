@@ -36,9 +36,12 @@ public class Sketch: NSManagedObject {
         addPrompt()
         observeURL()
         
-        if let hostURLString {
-            validateURLString(hostURLString)
-        }
+    }
+    
+    public override class func didChangeValue(forKey key: String) {
+        super.didChangeValue(forKey: key)
+        
+        print("There's some changing happening")
     }
     
     public override func awakeFromFetch() {
@@ -61,20 +64,31 @@ public class Sketch: NSManagedObject {
                 return
             }
             
-            self.validateURLString(string)
+            self.validateURLString()
         }
     }
     
-    func validateURLString(_ string: String) {
-        guard let url = URL(string: string) else {
+    func validateURLString() {
+        guard let hostURLString,
+            let url = URL(string: hostURLString) else {
             urlState = .invalid
             print("Bad url")
             return
         }
         
         urlState = .valid
-        client.loadSchema(url: url, sketch: self)
         print("Valid URL")
+        
+    }
+    
+    func loadSchema() {
+        //TODO: Error handling
+        
+        validateURLString()
+        if urlState == .valid {
+            client.loadSchema(url: URL(string: hostURLString!)!, sketch: self)
+        }
+        
     }
 
     var client: NetworkClient = NetworkClient()
@@ -91,6 +105,10 @@ public class Sketch: NSManagedObject {
                 prompt?.updateSchema(schema)
             }
         }
+    }
+    
+    func requestNewPrediction() {
+        client.predict(with: self)
     }
     
     

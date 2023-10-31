@@ -11,14 +11,33 @@ import SwiftUI
 struct Cogitator2App: App {
     let persistenceController = PersistenceController.shared
     
-//    init() {
-//        ValueTransformer.setValueTransformer(JSONSchemaTransformer(), forName: JSONSchemaTransformer.name)
-//    }
+    @Environment(\.undoManager) var undoManager
+
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onChange(of: undoManager) { newManager in
+                    print("UndoManager changed!")
+                    if newManager != nil {
+                        print("The new manager is not nil!")
+                    } else {
+                        print("The new manager is nil!")
+                    }
+                    PersistenceController.shared.container.viewContext.undoManager = newManager
+                }
+                .onAppear {
+                    if undoManager != nil {
+                        print("Got an UndoManager on appear")
+                        PersistenceController.shared.container.viewContext.undoManager = undoManager
+                    } else {
+                        print("This view appeared with no UndoManager!")
+                    }
+                }
+
         }
+
+
     }
 }

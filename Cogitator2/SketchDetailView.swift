@@ -7,11 +7,23 @@
 
 import SwiftUI
 
+struct PromptInputListView: View {
+    @ObservedObject var prompt: Prompt
+    
+    var body: some View {
+        List {
+            
+            ForEach(prompt.orderedParameters) { parameter in
+                InputFieldView(parameter: parameter)
+            }
+        }
+        .border(.separator)
+    }
+}
+
 struct SketchDetailView: View {
     
     @ObservedObject var sketch: Sketch
-    @State private var inputSchema: [Parameter] = []
-
     
     func labeledField(title: String, binding: Binding<String>) -> some View {
         
@@ -23,47 +35,59 @@ struct SketchDetailView: View {
         }
     }
     
-    var inputList: some View {
-        List {
-            
-            ForEach(inputSchema) { parameter in
-                
-                InputFieldView(parameter: parameter)
-            }
-        }
-    }
-    
-    func handleNewSchema(_ newSchema: [Parameter]) {
-        self.inputSchema = newSchema.sorted()
-        
-    }
-    
-    var body: some View {
+    var promptEditor: some View {
         Group {
             
             VStack(spacing: .defaultMeasure * 2) {
 
                 labeledField(title: "Sketch Name", binding: $sketch.title ?? "Unnamed")
                 
-                labeledField(title: "Host URL", binding: $sketch.hostURLString ?? "http://greatwhite.local:5000")
+                HStack(alignment: .bottom) {
+                    labeledField(title: "Host URL", binding: $sketch.hostURLString ?? "http://greatwhite.local:5000")
+                    Button {
+                        sketch.loadSchema()
+                    } label: {
+                        Text("Load Schema")
+                    }
+
+                }
                 
-                inputList
+                if let prompt = sketch.prompt {
+                    PromptInputListView(prompt: prompt)
+                }
+                
+                Button {
+                    sketch.requestNewPrediction()
+                } label: {
+                    Text("Run Prediction")
+                        .frame(maxWidth: .infinity)
+                }
+
             }
+            .padding(.trailing, .defaultMeasure * 2)
         }
+        .onAppear {
+            sketch.prompt?.updateOrderedParameters()
+        }
+
+    }
+    
+    var body: some View {
+        HSplitView {
+            promptEditor
+                .frame(minWidth: 500)
+            PredictionResultListView(sketch: sketch)
+
+
+        }
+        
         .padding()
         .navigationTitle(sketch.title ?? "")
-        .onReceive(sketch.prompt!.parameters.publisher) { _ in
-            if let newSchema = sketch.prompt?.keyedParameters.values {
-                handleNewSchema(Array(newSchema))
-            } else {
-                inputSchema = []
-            }
-        }
     }
 }
 
 #Preview {
-    SketchDetailView(sketch: Sketch(context: PersistenceController.preview.container.viewContext))
-
+    SketchDetailView(sketch: Sketch.previewEntity)
+        .frame(height: 800)
     
 }

@@ -13,6 +13,11 @@
 		1F81CAB62AEE168D0021773E /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAB52AEE168D0021773E /* Parameter.swift */; };
 		1F81CAC02AEF4AD70021773E /* OpenAPIKit30 in Frameworks */ = {isa = PBXBuildFile; productRef = 1F81CABF2AEF4AD70021773E /* OpenAPIKit30 */; };
 		1F81CAC12AEF4F630021773E /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAB52AEE168D0021773E /* Parameter.swift */; };
+		1F81CAC32AF024080021773E /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAC22AF024080021773E /* CoreDataUtils.swift */; };
+		1F81CAC52AF09D500021773E /* SketchPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAC42AF09D500021773E /* SketchPreview.swift */; };
+		1F81CAC72AF09DF00021773E /* inputSchema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F81CAC62AF09DF00021773E /* inputSchema.json */; };
+		1F81CACB2AF184430021773E /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CACA2AF184430021773E /* ImageSaver.swift */; };
+		1F81CACD2AF18A410021773E /* UndoManagerDuctTape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */; };
 		1FB4D5342AECBB9500B6311E /* Cogitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */; };
 		1FB4D5352AECBB9C00B6311E /* PredictionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */; };
 		1FB4D5362AECBB9D00B6311E /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */; };
@@ -56,6 +61,11 @@
 		1F81CAA72AED9FC50021773E /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		1F81CAAC2AEDCB780021773E /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		1F81CAB52AEE168D0021773E /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		1F81CAC22AF024080021773E /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
+		1F81CAC42AF09D500021773E /* SketchPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchPreview.swift; sourceTree = "<group>"; };
+		1F81CAC62AF09DF00021773E /* inputSchema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = inputSchema.json; sourceTree = "<group>"; };
+		1F81CACA2AF184430021773E /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerDuctTape.swift; sourceTree = "<group>"; };
 		1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultListView.swift; sourceTree = "<group>"; };
 		1FDD417C2AED9422006287D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogitator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFF8B0D2AEACF6900B4C985 /* Preview Assets.xcassets */,
+				1F81CAC62AF09DF00021773E /* inputSchema.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 				1FFF8B022AEACF6700B4C985 /* Persistence.swift */,
 				1F81CAB52AEE168D0021773E /* Parameter.swift */,
 				1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */,
+				1F81CAC42AF09D500021773E /* SketchPreview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,8 +214,11 @@
 		1FFF8B5D2AECB47D00B4C985 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				1F81CACA2AF184430021773E /* ImageSaver.swift */,
 				1FFF8B5E2AECB49500B4C985 /* OptionalBinding.swift */,
 				1FDD417C2AED9422006287D5 /* Constants.swift */,
+				1F81CAC22AF024080021773E /* CoreDataUtils.swift */,
+				1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -322,6 +337,7 @@
 			files = (
 				1FFF8B0E2AEACF6900B4C985 /* Preview Assets.xcassets in Resources */,
 				1FFF8B0A2AEACF6900B4C985 /* Assets.xcassets in Resources */,
+				1F81CAC72AF09DF00021773E /* inputSchema.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +363,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */,
+				1F81CACD2AF18A410021773E /* UndoManagerDuctTape.swift in Sources */,
 				1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */,
+				1F81CAC52AF09D500021773E /* SketchPreview.swift in Sources */,
+				1F81CACB2AF184430021773E /* ImageSaver.swift in Sources */,
 				1FFF8B592AECA73400B4C985 /* SketchDetailView.swift in Sources */,
 				1FDD417B2AED8FC3006287D5 /* PredictionResultListView.swift in Sources */,
 				1FFF8B562AEAE1B500B4C985 /* Prompt.swift in Sources */,
@@ -360,6 +379,7 @@
 				1FFF8B522AEAE1B500B4C985 /* PredictionResult.swift in Sources */,
 				1FFF8B5F2AECB49500B4C985 /* OptionalBinding.swift in Sources */,
 				1FFF8B062AEACF6700B4C985 /* Cogitator.xcdatamodeld in Sources */,
+				1F81CAC32AF024080021773E /* CoreDataUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

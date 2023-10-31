@@ -21,7 +21,9 @@ struct InputFieldView: View {
     }
     
     func stringInput(for schema: JSONSchema) -> some View {
-        return TextField(schema.defaultValue?.value as? String ?? "", text: parameter.stringValue)
+        TextField(parameter.schema?.defaultValue?.value as? String ?? "", text: parameter.stringValue, axis: .vertical)
+            .lineLimit(4)
+            .background(.windowBackground)
     }
     
     func boolInput(for schema: JSONSchema) -> some View {
@@ -54,16 +56,29 @@ struct InputFieldView: View {
     var body: some View {
         
         if let schema = parameter.schema {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: .defaultMeasure) {
 
+                HStack {
                     Text(parameter.schema?.title ?? "")
+                        .fontWeight(.medium)
+                    Spacer()
+                    Text(parameter.fieldName ?? "")
+                        .font(.system(.caption, design: .monospaced))
+                        .foregroundStyle(Color.orange)
+                        .padding(4)
+                        .background(.windowBackground)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
 
+                }
                 
-                Text(parameter.fieldName ?? "")
                 input(for: schema)
                     .frame(idealWidth: .infinity)
+                
                 Text(parameter.schema?.description ?? "")
-            }       
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.vertical, .defaultMeasure / 2)
         }
     }
 }
@@ -86,7 +101,7 @@ struct NumericInputField<T: NumericInput>: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             TextField(placeholderText, text: Binding(
                 get: {
                     
@@ -99,12 +114,13 @@ struct NumericInputField<T: NumericInput>: View {
                 },
                 set: { if let newValue = T($0) { value = newValue } }
             ))
+            .background(.windowBackground)
             
             HStack {
                 if let minInt = schema.integerContext?.minimum?.value {
-                    Text("min: \(minInt)")
+                    Text("min: \(minInt),")
                 } else if let minFloat = schema.numberContext?.minimum?.value {
-                    Text("min: \(String(format: "%.1f", minFloat))")
+                    Text("min: \(String(format: "%.1f", minFloat)),")
                 }
                 
                 if let maxInt = schema.integerContext?.maximum?.value {
@@ -113,6 +129,8 @@ struct NumericInputField<T: NumericInput>: View {
                     Text("max: \(String(format: "%.1f", maxFloat))")
                 }
             }
+            .font(.system(.caption, design: .monospaced))
+            .foregroundStyle(.tertiary)
         }
     }
 }
@@ -120,3 +138,12 @@ struct NumericInputField<T: NumericInput>: View {
 //#Preview {
 //    SchemaFieldView()
 //}
+
+extension NSTextView {
+  open override var frame: CGRect {
+    didSet {
+      backgroundColor = .clear
+      drawsBackground = true
+    }
+  }
+}

@@ -27,6 +27,23 @@ struct PersistenceController {
         }
         return result
     }()
+    
+    static func saveViewContextLoggingErrors() {
+        do {
+            try Self.shared.container.viewContext.save()
+
+        } catch {
+            print("Unable to save Core Data view context: \(error)")
+        }
+    }
+    
+    static var viewContext: NSManagedObjectContext {
+        return Self.shared.container.viewContext
+    }
+    
+    static func newBackgroundContext() -> NSManagedObjectContext {
+        Self.shared.container.newBackgroundContext()
+    }
 
     let container: NSPersistentCloudKitContainer
 
@@ -53,4 +70,5 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+
 }

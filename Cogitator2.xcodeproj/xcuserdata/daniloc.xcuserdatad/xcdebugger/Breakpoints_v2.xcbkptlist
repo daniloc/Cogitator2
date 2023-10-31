@@ -7,16 +7,221 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D0302921-E78C-4F3D-BF6D-6140B0309A04"
+            uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D"
+            shouldBeEnabled = "No"
+            condition = "fieldName == &quot;prompt&quot;"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cogitator2/Model/Parameter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "dictionary"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "688">
+               </Location>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "896">
+               </Location>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "D9ABB68F-BE71-49EE-90F0-0E02CE6C548D - de0ce1d025915a36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cogitator2.Parameter.dictionary.getter : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/Model/Parameter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "872">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4E0B2F1-54E6-4D55-AF3A-D400C96690B6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cogitator2/Network/NetworkClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "loadSchema(url:sketch:)"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "predict(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4D15C2E-26D7-4D4D-BCD2-67961759229E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cogitator2/Network/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "handle(output:for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01D8DC95-D652-4006-BC73-BC18D25B9265"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cogitator2/PredictionResultListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "01D8DC95-D652-4006-BC73-BC18D25B9265 - 8803538064176007"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt;)&gt;&gt;)&gt; in Cogitator2.PredictionResultCell.body.getter : some"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/PredictionResultListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1368">
+               </Location>
+               <Location
+                  uuid = "01D8DC95-D652-4006-BC73-BC18D25B9265 - 8803538064176007"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;Swift.String&gt;, Swift.String, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt;)&gt;&gt;)&gt; in Cogitator2.PredictionResultCell.body.getter : some"
+                  moduleName = "Cogitator2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniloc/Documents/Development/Cogitator2/Cogitator2/PredictionResultListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1684">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1204E0E3-E76C-4B6A-A6FB-7838C053B7BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cogitator2/Model/Prompt.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "summary"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F45829D-2951-4772-B865-0FA3E9629B9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cogitator2/Network/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "predict(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

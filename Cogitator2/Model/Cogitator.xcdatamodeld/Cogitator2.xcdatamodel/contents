@@ -10,7 +10,8 @@
     </entity>
     <entity name="PredictionResult" representedClassName="PredictionResult" syncable="YES" codeGenerationType="category">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="returnedData" optional="YES" attributeType="Transformable" customClassName="[Data]"/>
+        <attribute name="imageFileURL" optional="YES" attributeType="String"/>
+        <attribute name="returnedData" optional="YES" attributeType="Binary" customClassName="[Data]"/>
         <relationship name="prompt" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Prompt" inverseName="results" inverseEntity="Prompt"/>
         <relationship name="sketch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sketch" inverseName="results" inverseEntity="Sketch"/>
     </entity>

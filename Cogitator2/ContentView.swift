@@ -24,14 +24,23 @@ struct ContentView: View {
                     NavigationLink {
                         SketchDetailView(sketch: item)
                     } label: {
-                        Text(item.lastEdited!, formatter: itemFormatter)
+                        
+                        VStack(alignment: .leading) {
+                         
+                            Text(item.title ?? "Unnamed Sketch")
+                            
+                            Text(item.lastEdited!, formatter: itemFormatter)
+                                .foregroundStyle(.secondary)
+                            
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
 
             }
-            PredictionResultListView()
-                .frame(width: 200)
+            .background(.windowBackground)
+            
+
 
             .toolbar {
 #if os(iOS)
@@ -45,7 +54,6 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
         }
     }
 
@@ -86,7 +94,7 @@ struct ContentView: View {
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
-    formatter.timeStyle = .medium
+    formatter.timeStyle = .short
     return formatter
 }()
 
