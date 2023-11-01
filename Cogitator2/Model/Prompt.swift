@@ -77,7 +77,8 @@ public class Prompt: NSManagedObject {
         var dictionary: [String:Any] = [:]
         
         orderedParameters.forEach { parameter in
-            if let parameterDictionary = parameter.dictionary {
+            if let parameterDictionary = parameter.dictionary
+            {
                 dictionary.merge(parameterDictionary) { current, _ in
                     
                 }

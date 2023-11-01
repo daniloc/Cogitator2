@@ -24,66 +24,73 @@ class NetworkClient: ObservableObject {
     init() {
     }
     
-    func loadSchema(url: URL, sketch: Sketch) {
+    func loadSchema(url: URL, sketch: Sketch) async throws {
         
         self.baseURL = url
         
         let jsonDocumentURL = url.appending(path: "/openapi.json")
+        let jsonData: Data
         
-        Task {
+        do {
+            jsonData = try await URLSession.shared.data(from: jsonDocumentURL).0
+        } catch {
+            print("Error loading schema data: \(error)")
+            throw Sketch.SchemaValidationError.unableToConnect(connectionError: error)
+        }
+        
+        let decoder = JSONDecoder()
+        let derefApiDoc: DereferencedDocument
+        
+        do {
             
-            do {
-                let jsonData = try await URLSession.shared.data(from: jsonDocumentURL).0
-
-                let decoder = JSONDecoder()
-                let apiDoc = try decoder.decode(OpenAPI.Document.self, from: jsonData)
-                let derefApiDoc = try? apiDoc.locallyDereferenced().resolved()
-                print(derefApiDoc ?? "no deref")
+            let apiDoc = try decoder.decode(OpenAPI.Document.self, from: jsonData)
+            let derefApiDoc = try apiDoc.locallyDereferenced().resolved()
+            
+            derefApiDoc.components.schemas.forEach { schema in
                 
-                
-                derefApiDoc!.components.schemas.forEach { schema in
+                if schema.key.rawValue == SchemaKeys.Input.rawValue {
                     
-                    if schema.key.rawValue == SchemaKeys.Input.rawValue {
-                        
-                        var inputValues: [String:JSONSchema] = [:]
-                        
-                        print(schema.value.objectContext ?? "")
-                        
-                        schema.value.objectContext?.properties.forEach { property in
-                            inputValues[property.key] = property.value
-                        }
-                        
-                        DispatchQueue.main.sync {
-                            sketch.inputSchema = inputValues
-                            PersistenceController.saveViewContextLoggingErrors()
-                        }
-
+                    var inputValues: [String:JSONSchema] = [:]
+                    
+                    print(schema.value.objectContext ?? "")
+                    
+                    schema.value.objectContext?.properties.forEach { property in
+                        inputValues[property.key] = property.value
+                    }
+                    
+                    DispatchQueue.main.sync {
+                        sketch.inputSchema = inputValues
+                        PersistenceController.saveViewContextLoggingErrors()
                     }
                     
                 }
                 
-            } catch {
-                print(error)
             }
             
+        } catch {
+            print("Error parsing schema: \(error)")
+            throw Sketch.SchemaValidationError.unableToParse(parseError: error)
         }
+        
     }
     
-    func handle(output: [Any], for sketch: Sketch) {
-        //TODO: Let's add some proper error handling here, this should throw instead of returning silently
+    func handle(output: [Any], for sketch: Sketch) throws {
         let fileManager = FileManager.default
-        let appSupportDirectory = try? fileManager.url(for: .applicationSupportDirectory,
-                                                       in: .userDomainMask,
-                                                       appropriateFor: nil,
-                                                       create: true)
+        let appSupportDirectory: URL
         
-        guard let directory = appSupportDirectory else { return }
+        do {
+           appSupportDirectory = try fileManager.url(for: .applicationSupportDirectory,
+                                                           in: .userDomainMask,
+                                                           appropriateFor: nil,
+                                                           create: true)
+        } catch {
+            throw Sketch.PredictionError.localStorageError(fileError: error)
+        }
         
-        try? sketch.managedObjectContext?.save()
-        
+        PersistenceController.saveViewContextLoggingErrors()
         let backgroundContext = PersistenceController.newBackgroundContext()
         
-        output.forEach { content in
+        try output.forEach { content in
             let components = (content as! String).components(separatedBy: ",")
             
             if let base64content = components.last,
@@ -95,7 +102,7 @@ class NetworkClient: ObservableObject {
                 
                 // Create a unique file name
                 let fileName = UUID().uuidString + ".png"
-                let fileURL = directory.appendingPathComponent(fileName)
+                let fileURL = appSupportDirectory.appendingPathComponent(fileName)
                 
                 do {
                     // Write to file
@@ -104,7 +111,6 @@ class NetworkClient: ObservableObject {
                     // Save file URL in Core Data object
                     result.imageFileURL = fileURL.absoluteString
                     
-                    // Link the PredictionResult to the Sketch if needed
                     contextSafeSketch.addToResults(result)
                     contextSafeSketch.lastEdited = .now
                     result.date = .now
@@ -113,7 +119,7 @@ class NetworkClient: ObservableObject {
                         result.prompt = prompt.cloneWithoutRelationships(into: backgroundContext)
                         
                         prompt.orderedParameters.forEach { parameter in
-                                
+                            
                             if let clonedParameter = parameter.cloneWithoutRelationships(into: backgroundContext) {
                                 
                                 result.prompt?.addToParameters(clonedParameter)
@@ -121,110 +127,81 @@ class NetworkClient: ObservableObject {
                         }
                     }
                     
+                    try backgroundContext.save()
+                    
                 } catch {
                     // Handle the error
                     print("Error saving image: \(error)")
+                    throw Sketch.PredictionError.localStorageError(fileError: error)
                 }
             }
         }
         
-        do {
-            try backgroundContext.save()
-        } catch {
-            print("Error saving context: \(error)")
-        }
-
     }
     
-    func predict(with sketch: Sketch) {
+    func predict(with sketch: Sketch) async throws {
         
         PersistenceController.saveViewContextLoggingErrors()
         
-        if predictionEndpointURL == nil, let hostURLString = sketch.hostURLString {
+        if predictionEndpointURL == nil,
+           let hostURLString = sketch.hostURLString
+        {
             baseURL = URL(string: hostURLString)
         }
         
-        //TODO: Let's add some proper error handling here, this should throw instead of returning silently
+        if baseURL == nil {
+            throw Sketch.PredictionError.invalidRequest
+        }
+        
         guard let url = self.predictionEndpointURL,
               let prompt = sketch.prompt,
-            prompt.predictionRequestDictionary.values.count > 0
+              prompt.predictionRequestDictionary.values.count > 0
         else {
-            return
+            throw Sketch.PredictionError.invalidRequest
         }
         
         do {
             
             let wrappedParams = ["input": prompt.predictionRequestDictionary]
+            let inputData = try JSONSerialization.data(withJSONObject: wrappedParams, options: [])
             
-            let data = try JSONSerialization.data(withJSONObject: wrappedParams, options: [])
-
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
-            request.httpBody = data
+            request.httpBody = inputData
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data
-                        
-                else {
-                    print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                    return
-                }
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("statusCode: \(httpResponse.statusCode)")
                 
-                if let httpResponse = response as? HTTPURLResponse {
-                    print("statusCode: \(httpResponse.statusCode)")
+
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                        
-                        if let output = json?["output"] as? [Any] {
-                            self.handle(output: output, for: sketch)
-                        } else if let output = json?["output"] as? String {
-                            self.handle(output: [output], for: sketch)
-                        }
-                        
-                    } catch {
-                        print("Error during JSON serialization: \(error)")
+                    if httpResponse.statusCode >= 400 {
+                        throw Sketch.PredictionError.issueAtServer(serverError: String(describing: json))
                     }
+                    
+                    if let output = json?["output"] as? [Any] {
+                        try self.handle(output: output, for: sketch)
+                    } else if let output = json?["output"] as? String {
+                        try self.handle(output: [output], for: sketch)
+                    }
+                    
+                } catch {
+                    print("Error during JSON serialization: \(error)")
+                    throw Sketch.PredictionError.issueParsingResponse(parseError: error)
                 }
-                
             }
             
-            task.resume()
         } catch {
-            print("Error: \(error)")
+            print("Connection error: \(error)")
+            throw Sketch.PredictionError.unableToConnect(connectionError: error)
         }
         
     }
-//    private var responsesFileURL: URL {
-//        let tmpDir = FileManager.default.temporaryDirectory
-//        return tmpDir.appendingPathComponent("responses.json")
-//    }
-//    
-//    func saveResponses() {
-//        let encoder = JSONEncoder()
-//        do {
-//            let data = try encoder.encode(responses)
-//            try data.write(to: responsesFileURL)
-//        } catch {
-//            print("Failed to save responses: \(error)")
-//        }
-//    }
-//    
-//    func loadResponses() {
-//        do {
-//            let data = try Data(contentsOf: responsesFileURL)
-//            let decoder = JSONDecoder()
-//            responses = try decoder.decode([PredictionResponse].self, from: data)
-//        } catch {
-//            print("Failed to load responses: \(error)")
-//        }
-//    }
-//    
-//    func removeResponse(response: PredictionResponse) {
-//        responses.removeAll { $0.id == response.id }
-//        saveResponses()
-//    }
 }
 
 extension Data {

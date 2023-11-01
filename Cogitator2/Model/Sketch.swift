@@ -19,8 +19,8 @@ public class Sketch: NSManagedObject {
     
     enum URLState {
         case valid,
-        invalid,
-        notSet
+             invalid,
+             notSet
     }
     
     
@@ -64,16 +64,16 @@ public class Sketch: NSManagedObject {
                 return
             }
             
-            self.validateURLString()
+            try? self.validateURLString()
         }
     }
     
-    func validateURLString() {
+    func validateURLString() throws {
         guard let hostURLString,
-            let url = URL(string: hostURLString) else {
+              let _ = URL(string: hostURLString) else {
             urlState = .invalid
             print("Bad url")
-            return
+            throw(SchemaValidationError.invalidURL)
         }
         
         urlState = .valid
@@ -81,16 +81,27 @@ public class Sketch: NSManagedObject {
         
     }
     
-    func loadSchema() {
-        //TODO: Error handling
+    enum SchemaValidationError: Error {
+        case invalidURL,
+         unableToConnect(connectionError: Error),
+         unableToParse(parseError: Error)
+    }
+    
+    enum PredictionError: Error {
+        case unableToConnect(connectionError: Error),
+             issueParsingResponse(parseError: Error),
+             issueAtServer(serverError: String),
+        invalidRequest,
+             localStorageError(fileError: Error)
+    }
+    
+    func loadSchema() async throws {
         
-        validateURLString()
-        if urlState == .valid {
-            client.loadSchema(url: URL(string: hostURLString!)!, sketch: self)
-        }
+        try validateURLString()
+        try await client.loadSchema(url: URL(string: hostURLString!)!, sketch: self)
         
     }
-
+    
     var client: NetworkClient = NetworkClient()
     
     var inputSchema: [String:JSONSchema]? {
@@ -107,8 +118,9 @@ public class Sketch: NSManagedObject {
         }
     }
     
-    func requestNewPrediction() {
-        client.predict(with: self)
+    func requestNewPrediction() async throws {
+        try validateURLString()
+        try await client.predict(with: self)
     }
     
     
