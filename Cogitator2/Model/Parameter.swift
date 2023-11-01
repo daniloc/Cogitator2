@@ -30,7 +30,7 @@ public class Parameter: NSManagedObject, Comparable {
 
     
     var dictionary: [String: Any]? {
-        guard let fieldName = fieldName, let valueData = valueData, let schema = schema else {
+        guard let fieldName = fieldName, let valueData = valueData, valueData.count > 0, let schema = schema else {
             return nil
         }
         
