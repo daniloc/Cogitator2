@@ -80,7 +80,6 @@ struct SketchDetailView: View {
 
 
         }
-        
         .padding()
         .navigationTitle(sketch.title ?? "")
     }

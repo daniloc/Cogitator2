@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ActionButton: View {
     let symbolName: String
+    let title: String
     let action: () -> Void
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(.windowBackground)
-            Image(systemName: symbolName)
+            HStack {
+                Image(systemName: symbolName)
+                Text(title)
+            }
+            
         }
         .onTapGesture {
             action()
@@ -63,7 +68,7 @@ struct PredictionResultCell: View {
             }
             
             HStack {
-                ActionButton(symbolName: "clear") {
+                ActionButton(symbolName: "clear", title: "Remove") {
                     
                     if let undoManager {
                         PersistenceController.viewContext.undoManager = undoManager
@@ -72,9 +77,8 @@ struct PredictionResultCell: View {
                     predictionResult.remove()
                 }
                 .frame(height: 40)
-                .buttonStyle(.borderless)
                 
-                ActionButton(symbolName: "square.and.arrow.down") {
+                ActionButton(symbolName: "square.and.arrow.down", title: "Save to Downloads") {
                     predictionResult.saveImageToDownloads()
                 }
                 .frame(height: 40)
@@ -100,6 +104,8 @@ struct PredictionResultListView: View {
                 
     }
     
+
+    
     var body: some View {
 
         VStack {
@@ -110,16 +116,16 @@ struct PredictionResultListView: View {
             List {
                 ForEach(results) { result in
                         PredictionResultCell(predictionResult: result)
+                        .frame(width: 400)
+                    }
+
                 }
+            .border(.separator)
+
             }
             .frame(minWidth: 250, idealWidth: 250)
-            .border(.separator)
             .padding(.horizontal)
         }
-        
-
-            
-    }
 }
 
 #Preview {

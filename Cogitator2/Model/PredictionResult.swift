@@ -37,6 +37,7 @@ public class PredictionResult: NSManagedObject {
             deleteImageFile(from: path)
         }
         managedObjectContext?.undoManager?.setActionName("Delete Prediction Result")
+        self.sketch?.lastEdited = .now
         self.managedObjectContext?.delete(self)
         PersistenceController.saveViewContextLoggingErrors()
     }

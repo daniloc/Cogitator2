@@ -55,6 +55,7 @@ class NetworkClient: ObservableObject {
                         
                         DispatchQueue.main.sync {
                             sketch.inputSchema = inputValues
+                            PersistenceController.saveViewContextLoggingErrors()
                         }
 
                     }
@@ -105,6 +106,7 @@ class NetworkClient: ObservableObject {
                     
                     // Link the PredictionResult to the Sketch if needed
                     contextSafeSketch.addToResults(result)
+                    contextSafeSketch.lastEdited = .now
                     result.date = .now
                     
                     if let prompt = sketch.prompt {
