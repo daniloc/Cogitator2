@@ -20,7 +20,6 @@ struct ActionButton: View {
                 Image(systemName: symbolName)
                 Text(title)
             }
-            
         }
         .onTapGesture {
             action()
@@ -76,13 +75,12 @@ struct PredictionResultCell: View {
                     
                     predictionResult.remove()
                 }
-                .frame(height: 40)
                 
                 ActionButton(symbolName: "square.and.arrow.down", title: "Save to Downloads") {
                     predictionResult.saveImageToDownloads()
                 }
-                .frame(height: 40)
             }
+            .frame(height: 30)
         }
     }
 }

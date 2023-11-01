@@ -109,7 +109,7 @@ struct SketchDetailView: View {
                 statusLabel(title: "Prediction error: \(detail)")
             }
         }
-     }
+    }
     
     var promptEditor: some View {
         Group {
@@ -139,9 +139,21 @@ struct SketchDetailView: View {
                     Button {
                         requestPrediction()
                     } label: {
-                        Text("Run Prediction")
-                            .frame(maxWidth: .infinity)
+                        
+                        HStack {
+                            
+                            Text("Run Prediction")
+                                .frame(maxWidth: .infinity)
+                            
+                            if predictionStatus == .awaitingData {
+                                ProgressView()
+                                    .scaleEffect(0.25)
+                            }
+                        }
+                        .frame(height: 30)
                     }
+                    .disabled(predictionStatus == .awaitingData)
+                    .padding([.bottom, .horizontal], 2)
                     
                 }
                 
@@ -157,12 +169,11 @@ struct SketchDetailView: View {
     }
     
     var body: some View {
-        HSplitView {
+        HStack {
             promptEditor
                 .frame(minWidth: 500)
             PredictionResultListView(sketch: sketch)
-            
-            
+                .frame(width: 475)
         }
         .padding()
         .navigationTitle(sketch.title ?? "")
