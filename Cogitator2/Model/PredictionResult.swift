@@ -138,14 +138,29 @@ public class PredictionResult: NSManagedObject {
             print("Couldn't locate cache directory")
             return
         }
-        
+
         let cachePath = cacheDirectory.appendingPathComponent(fileName)
-        
+
         do {
             let data = try Data(contentsOf: cachePath)
             self.loadImageFromData(data: data)
+            
+            // Assuming imageFileURL is a property of the enclosing type
+            guard let imageFileURL,
+                let fileURL = URL(string: imageFileURL) else {
+                print("Invalid imageFileURL")
+                return
+            }
+            
+            // Ensure the directory exists
+            let directoryURL = fileURL.deletingLastPathComponent()
+            try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+            
+            // Save the data to the file URL
+            try data.write(to: fileURL)
+            
         } catch {
-            print("Error loading image from cache: \(error)")
+            print("Error: \(error)")
         }
     }
     
