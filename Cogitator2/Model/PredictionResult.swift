@@ -108,6 +108,10 @@ public class PredictionResult: NSManagedObject {
         }
     }
     
+    func openInWindow() {
+        ResultWindowView.open(with: self)
+    }
+    
     private func loadImageFromData(data: Data) {
 #if os(macOS)
         if let nsImage = NSImage(data: data) {

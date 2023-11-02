@@ -47,6 +47,9 @@ struct PredictionResultCell: View {
                     image
                         .resizable()
                         .frame(width: 200, height: 200)
+                        .onTapGesture(count: 2) {
+                            predictionResult.openInWindow()
+                        }
                 } else {
                     Text("Loading")
                         .onAppear {

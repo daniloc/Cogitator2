@@ -26,6 +26,7 @@ struct SketchDetailView: View {
     @ObservedObject var sketch: Sketch
     @State var urlFieldStatus: FieldStatus?
     @State var predictionStatus: FieldStatus?
+    @State var lastResults: [PredictionResult]?
     
     enum FieldStatus: Equatable {
         case normal,
@@ -42,7 +43,7 @@ struct SketchDetailView: View {
                     Text("\(title): \(detail)")
                     
                 }
-                    .foregroundStyle(.red)
+                .foregroundStyle(.red)
                 
             } else {
                 Text(title)
@@ -89,8 +90,12 @@ struct SketchDetailView: View {
         Task {
             do {
                 predictionStatus = .awaitingData
-                try await sketch.requestNewPrediction()
+                
+                let results = try await sketch.requestNewPrediction()
+                
+                self.lastResults = results
                 predictionStatus = .normal
+                
             } catch {
                 predictionStatus = .error(detail: error.localizedDescription)
             }
@@ -157,7 +162,7 @@ struct SketchDetailView: View {
                     
                 }
                 
-
+                
                 
             }
             .padding(.trailing, .defaultMeasure * 2)
@@ -177,6 +182,13 @@ struct SketchDetailView: View {
         }
         .padding()
         .navigationTitle(sketch.title ?? "")
+        .onChange(of: lastResults) { _, newValue in
+            
+            newValue?.forEach { result in
+                result.openInWindow()
+            }
+            
+        }
     }
 }
 

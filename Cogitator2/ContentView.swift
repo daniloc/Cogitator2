@@ -29,8 +29,9 @@ struct ContentView: View {
                          
                             Text(item.title ?? "Unnamed Sketch")
                             
-                            Text(item.lastEdited!, formatter: itemFormatter)
-                                .foregroundStyle(.secondary)
+                            if let date = item.lastEdited {
+                                Text(date.shortString)
+                            }
                             
                         }
                     }
@@ -90,13 +91,6 @@ struct ContentView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .short
-    return formatter
-}()
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)

@@ -18,6 +18,9 @@
 		1F81CAC72AF09DF00021773E /* inputSchema.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F81CAC62AF09DF00021773E /* inputSchema.json */; };
 		1F81CACB2AF184430021773E /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CACA2AF184430021773E /* ImageSaver.swift */; };
 		1F81CACD2AF18A410021773E /* UndoManagerDuctTape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */; };
+		1F81CACF2AF3414F0021773E /* WindowCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CACE2AF3414F0021773E /* WindowCreator.swift */; };
+		1F81CAD32AF3423F0021773E /* ResultWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAD22AF3423F0021773E /* ResultWindowView.swift */; };
+		1F81CAD52AF34E990021773E /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81CAD42AF34E990021773E /* DateFormatting.swift */; };
 		1FB4D5342AECBB9500B6311E /* Cogitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */; };
 		1FB4D5352AECBB9C00B6311E /* PredictionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4C2AEAE1B500B4C985 /* PredictionResult.swift */; };
 		1FB4D5362AECBB9D00B6311E /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B4E2AEAE1B500B4C985 /* Sketch.swift */; };
@@ -66,6 +69,9 @@
 		1F81CAC62AF09DF00021773E /* inputSchema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = inputSchema.json; sourceTree = "<group>"; };
 		1F81CACA2AF184430021773E /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoManagerDuctTape.swift; sourceTree = "<group>"; };
+		1F81CACE2AF3414F0021773E /* WindowCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCreator.swift; sourceTree = "<group>"; };
+		1F81CAD22AF3423F0021773E /* ResultWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWindowView.swift; sourceTree = "<group>"; };
+		1F81CAD42AF34E990021773E /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultListView.swift; sourceTree = "<group>"; };
 		1FDD417C2AED9422006287D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogitator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +157,7 @@
 				1FFF8B072AEACF6700B4C985 /* ContentView.swift */,
 				1FFF8B582AECA73400B4C985 /* SketchDetailView.swift */,
 				1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */,
+				1F81CAD22AF3423F0021773E /* ResultWindowView.swift */,
 				1F81CAA62AED9FB00021773E /* Network */,
 				1FFF8B5A2AECACB600B4C985 /* Supplemental Views */,
 				1FFF8B312AEADE9C00B4C985 /* Model */,
@@ -215,10 +222,12 @@
 			isa = PBXGroup;
 			children = (
 				1F81CACA2AF184430021773E /* ImageSaver.swift */,
+				1F81CACE2AF3414F0021773E /* WindowCreator.swift */,
 				1FFF8B5E2AECB49500B4C985 /* OptionalBinding.swift */,
 				1FDD417C2AED9422006287D5 /* Constants.swift */,
 				1F81CAC22AF024080021773E /* CoreDataUtils.swift */,
 				1F81CACC2AF18A410021773E /* UndoManagerDuctTape.swift */,
+				1F81CAD42AF34E990021773E /* DateFormatting.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -372,10 +381,13 @@
 				1FFF8B562AEAE1B500B4C985 /* Prompt.swift in Sources */,
 				1F81CAB62AEE168D0021773E /* Parameter.swift in Sources */,
 				1FFF8B082AEACF6700B4C985 /* ContentView.swift in Sources */,
+				1F81CACF2AF3414F0021773E /* WindowCreator.swift in Sources */,
 				1FDD417D2AED9422006287D5 /* Constants.swift in Sources */,
 				1FFF8B542AEAE1B500B4C985 /* Sketch.swift in Sources */,
 				1F81CAAD2AEDCB780021773E /* InputFieldView.swift in Sources */,
 				1F81CAA82AED9FC50021773E /* NetworkClient.swift in Sources */,
+				1F81CAD32AF3423F0021773E /* ResultWindowView.swift in Sources */,
+				1F81CAD52AF34E990021773E /* DateFormatting.swift in Sources */,
 				1FFF8B522AEAE1B500B4C985 /* PredictionResult.swift in Sources */,
 				1FFF8B5F2AECB49500B4C985 /* OptionalBinding.swift in Sources */,
 				1FFF8B062AEACF6700B4C985 /* Cogitator.xcdatamodeld in Sources */,

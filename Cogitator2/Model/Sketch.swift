@@ -118,9 +118,9 @@ public class Sketch: NSManagedObject {
         }
     }
     
-    func requestNewPrediction() async throws {
+    func requestNewPrediction() async throws -> [PredictionResult] {
         try validateURLString()
-        try await client.predict(with: self)
+        return try await client.predict(with: self)
     }
     
     

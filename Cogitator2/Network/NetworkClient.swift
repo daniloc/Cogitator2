@@ -74,7 +74,7 @@ class NetworkClient: ObservableObject {
         
     }
     
-    func handle(output: [Any], for sketch: Sketch) throws {
+    func handle(output: [Any], for sketch: Sketch) throws -> [PredictionResult] {
         let fileManager = FileManager.default
         let appSupportDirectory: URL
         
@@ -89,6 +89,8 @@ class NetworkClient: ObservableObject {
         
         PersistenceController.saveViewContextLoggingErrors()
         let backgroundContext = PersistenceController.newBackgroundContext()
+        
+        var results: [PredictionResult] = []
         
         try output.forEach { content in
             let components = (content as! String).components(separatedBy: ",")
@@ -115,6 +117,7 @@ class NetworkClient: ObservableObject {
                     contextSafeSketch.lastEdited = .now
                     result.date = .now
                     
+                    
                     if let prompt = sketch.prompt {
                         result.prompt = prompt.cloneWithoutRelationships(into: backgroundContext)
                         
@@ -129,6 +132,10 @@ class NetworkClient: ObservableObject {
                     
                     try backgroundContext.save()
                     
+                    if let viewableResult = result.transferred(to: PersistenceController.viewContext) {
+                        results.append(viewableResult)
+                    }
+                    
                 } catch {
                     // Handle the error
                     print("Error saving image: \(error)")
@@ -137,9 +144,11 @@ class NetworkClient: ObservableObject {
             }
         }
         
+        return results
+        
     }
     
-    func predict(with sketch: Sketch) async throws {
+    func predict(with sketch: Sketch) async throws -> [PredictionResult] {
         
         PersistenceController.saveViewContextLoggingErrors()
         
@@ -172,6 +181,8 @@ class NetworkClient: ObservableObject {
             
             let (data, response) = try await URLSession.shared.data(for: request)
             
+            var results: [PredictionResult] = []
+            
             if let httpResponse = response as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 
@@ -180,21 +191,25 @@ class NetworkClient: ObservableObject {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     
-                    if httpResponse.statusCode >= 400 {
+                    guard httpResponse.statusCode < 400 else {
                         throw Sketch.PredictionError.issueAtServer(serverError: String(describing: json))
                     }
                     
+                    
                     if let output = json?["output"] as? [Any] {
-                        try self.handle(output: output, for: sketch)
+                        results = try self.handle(output: output, for: sketch)
                     } else if let output = json?["output"] as? String {
-                        try self.handle(output: [output], for: sketch)
+                       results = try self.handle(output: [output], for: sketch)
                     }
+                    
                     
                 } catch {
                     print("Error during JSON serialization: \(error)")
                     throw Sketch.PredictionError.issueParsingResponse(parseError: error)
                 }
             }
+            
+            return results
             
         } catch {
             print("Connection error: \(error)")
