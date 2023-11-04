@@ -12,6 +12,11 @@ import SwiftUI
 
 @objc(Parameter)
 public class Parameter: NSManagedObject, Comparable {
+    
+    enum Formats: String {
+        case URI = "uri"
+    }
+    
     public static func < (lhs: Parameter, rhs: Parameter) -> Bool {
         
         return lhs.sortIndex < rhs.sortIndex
@@ -38,7 +43,20 @@ public class Parameter: NSManagedObject, Comparable {
         
         switch schema.value {
         case .string:
-            value = String(data: valueData, encoding: .utf8)
+            
+            if schema.formatString == Formats.URI.rawValue,
+               let imageData,
+               let tiffData = NSImage(data: imageData)?.tiffRepresentation,
+               let bitmap = NSBitmapImageRep(data: tiffData),
+               let pngFormattedImageData = bitmap.representation(using: .png, properties: [:])
+            {
+                let base64URIPrefix = "data:image/png;base64,"
+                value = base64URIPrefix + pngFormattedImageData.base64EncodedString()
+            
+            } else {
+                value = String(data: valueData, encoding: .utf8)
+            }
+            
         case .integer:
             value = try? JSONDecoder().decode(Int.self, from: valueData)
         case .number:
@@ -51,11 +69,11 @@ public class Parameter: NSManagedObject, Comparable {
             return nil
         }
         
-        guard let unwrappedValue = value else {
+        guard let value else {
             return nil
         }
         
-        return [fieldName: unwrappedValue]
+        return [fieldName: value]
     }
 }
 

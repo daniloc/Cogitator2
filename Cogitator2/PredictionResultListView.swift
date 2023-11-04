@@ -61,6 +61,7 @@ struct PredictionResultCell: View {
                     Text(predictionResult.date?.formatted() ?? "No date")
                     
                     Text(predictionResult.prompt?.summary ?? "No summary")
+                        .textSelection(.enabled)
                     
                 }
                 .font(.system(.caption, design: .monospaced))

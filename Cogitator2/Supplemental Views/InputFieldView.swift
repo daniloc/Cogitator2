@@ -10,7 +10,7 @@ import OpenAPIKit30
 
 struct InputFieldView: View {
     
-    let parameter: Parameter
+    @ObservedObject var parameter: Parameter
     
     func intInput(for schema: JSONSchema) -> some View {
         return NumericInputField(value: parameter.intValue, schema: schema)
@@ -21,9 +21,21 @@ struct InputFieldView: View {
     }
     
     func stringInput(for schema: JSONSchema) -> some View {
-        TextField(parameter.schema?.defaultValue?.value as? String ?? "", text: parameter.stringValue, axis: .vertical)
-            .lineLimit(4)
-            .background(.windowBackground)
+        
+        return HStack {
+            
+            TextField(parameter.schema?.defaultValue?.value as? String ?? "", text: parameter.stringValue, axis: .vertical)
+                .lineLimit(4)
+                .background(.windowBackground)
+            
+            
+            if let format = schema.formatString, format  == Parameter.Formats.URI.rawValue {
+                ImageWellView(data: $parameter.imageData)
+            } else {
+                EmptyView()
+            }
+            
+        }
     }
     
     func boolInput(for schema: JSONSchema) -> some View {
@@ -57,7 +69,7 @@ struct InputFieldView: View {
         
         if let schema = parameter.schema {
             VStack(alignment: .leading, spacing: .defaultMeasure) {
-
+                
                 HStack {
                     Text(parameter.schema?.title ?? "")
                         .fontWeight(.medium)
@@ -68,7 +80,7 @@ struct InputFieldView: View {
                         .padding(4)
                         .background(.windowBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
-
+                    
                 }
                 
                 input(for: schema)
@@ -140,10 +152,10 @@ struct NumericInputField<T: NumericInput>: View {
 //}
 
 extension NSTextView {
-  open override var frame: CGRect {
-    didSet {
-      backgroundColor = .clear
-      drawsBackground = true
+    open override var frame: CGRect {
+        didSet {
+            backgroundColor = .clear
+            drawsBackground = true
+        }
     }
-  }
 }

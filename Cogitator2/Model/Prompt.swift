@@ -93,7 +93,7 @@ public class Prompt: NSManagedObject {
         
         for (parameter) in (parameters?.allObjects as! [Parameter]).sorted() {
             
-            if let _ = parameter.valueData {
+            if let data = parameter.valueData, data.isEmpty == false  {
                 summaryString += "\(parameter.fieldName ?? ""): \(parameter.stringValue.wrappedValue)\n"
             }
             
@@ -101,5 +101,5 @@ public class Prompt: NSManagedObject {
         
         return summaryString
     }
-
+ 
 }

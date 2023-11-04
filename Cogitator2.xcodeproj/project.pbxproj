@@ -27,6 +27,7 @@
 		1FB4D5372AECBB9D00B6311E /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B502AEAE1B500B4C985 /* Prompt.swift */; };
 		1FDD417B2AED8FC3006287D5 /* PredictionResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */; };
 		1FDD417D2AED9422006287D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDD417C2AED9422006287D5 /* Constants.swift */; };
+		1FE7C1BB2AF6AEB8005DE01E /* ImageWellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7C1BA2AF6AEB8005DE01E /* ImageWellView.swift */; };
 		1FFF8B012AEACF6700B4C985 /* Cogitator2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */; };
 		1FFF8B032AEACF6700B4C985 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B022AEACF6700B4C985 /* Persistence.swift */; };
 		1FFF8B062AEACF6700B4C985 /* Cogitator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF8B042AEACF6700B4C985 /* Cogitator.xcdatamodeld */; };
@@ -74,6 +75,7 @@
 		1F81CAD42AF34E990021773E /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		1FDD417A2AED8FC3006287D5 /* PredictionResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultListView.swift; sourceTree = "<group>"; };
 		1FDD417C2AED9422006287D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1FE7C1BA2AF6AEB8005DE01E /* ImageWellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWellView.swift; sourceTree = "<group>"; };
 		1FFF8AFD2AEACF6700B4C985 /* Cogitator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cogitator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF8B002AEACF6700B4C985 /* Cogitator2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cogitator2App.swift; sourceTree = "<group>"; };
 		1FFF8B022AEACF6700B4C985 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				1F81CAAC2AEDCB780021773E /* InputFieldView.swift */,
+				1FE7C1BA2AF6AEB8005DE01E /* ImageWellView.swift */,
 			);
 			path = "Supplemental Views";
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				1FDD417D2AED9422006287D5 /* Constants.swift in Sources */,
 				1FFF8B542AEAE1B500B4C985 /* Sketch.swift in Sources */,
 				1F81CAAD2AEDCB780021773E /* InputFieldView.swift in Sources */,
+				1FE7C1BB2AF6AEB8005DE01E /* ImageWellView.swift in Sources */,
 				1F81CAA82AED9FC50021773E /* NetworkClient.swift in Sources */,
 				1F81CAD32AF3423F0021773E /* ResultWindowView.swift in Sources */,
 				1F81CAD52AF34E990021773E /* DateFormatting.swift in Sources */,
