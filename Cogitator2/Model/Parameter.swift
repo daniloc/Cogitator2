@@ -32,7 +32,24 @@ public class Parameter: NSManagedObject, Comparable {
         }
     }
     
-
+    var image: Image? {
+        guard let base64ImageString else {
+            return nil
+        }
+        
+        return Image(base64String: base64ImageString)
+    }
+    
+    var base64ImageString: String? {
+        guard let imageData,
+              let tiffData = NSImage(data: imageData)?.tiffRepresentation,
+              let bitmap = NSBitmapImageRep(data: tiffData),
+              let pngFormattedImageData = bitmap.representation(using: .png, properties: [:]) else {
+            return nil
+        }
+        
+        return pngFormattedImageData.base64EncodedString()
+    }
     
     var dictionary: [String: Any]? {
         guard let fieldName = fieldName, let valueData = valueData, valueData.count > 0, let schema = schema else {
@@ -45,13 +62,10 @@ public class Parameter: NSManagedObject, Comparable {
         case .string:
             
             if schema.formatString == Formats.URI.rawValue,
-               let imageData,
-               let tiffData = NSImage(data: imageData)?.tiffRepresentation,
-               let bitmap = NSBitmapImageRep(data: tiffData),
-               let pngFormattedImageData = bitmap.representation(using: .png, properties: [:])
+               let base64ImageString
             {
                 let base64URIPrefix = "data:image/png;base64,"
-                value = base64URIPrefix + pngFormattedImageData.base64EncodedString()
+                value = base64URIPrefix + base64ImageString
             
             } else {
                 value = String(data: valueData, encoding: .utf8)

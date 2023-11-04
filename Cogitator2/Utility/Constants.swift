@@ -9,4 +9,5 @@ import Foundation
 
 extension CGFloat {
     static let defaultMeasure = 8.0
+    static let resultColumn = 430.0
 }

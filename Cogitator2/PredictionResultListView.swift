@@ -39,36 +39,56 @@ struct PredictionResultCell: View {
 
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
             
-            HStack(alignment: .top) {
+            Group {
                 
-                if let image = predictionResult.image {
-                    image
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .onTapGesture(count: 2) {
-                            predictionResult.openInWindow()
-                        }
-                } else {
-                    Text("Loading")
-                        .onAppear {
-                            predictionResult.loadImage()
-                        }
+                HStack(alignment: .top) {
+                    
+                    if let image = predictionResult.image {
+                        image
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .onTapGesture(count: 2) {
+                                predictionResult.openInWindow()
+                            }
+                    } else {
+                        Text("Loading")
+                            .onAppear {
+                                predictionResult.loadImage()
+                            }
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(predictionResult.date?.formatted() ?? "No date")
+                        
+                        Text(predictionResult.prompt?.summary ?? "No summary")
+                            .textSelection(.enabled)
+                        
+                    }
                 }
                 
-                VStack(alignment: .leading) {
-                    Text(predictionResult.date?.formatted() ?? "No date")
+                if let parameters = predictionResult.prompt?.orderedParameters {
                     
-                    Text(predictionResult.prompt?.summary ?? "No summary")
-                        .textSelection(.enabled)
-                    
+                    ForEach(parameters) { parameter in
+                        
+                        if let image = parameter.image {
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text(parameter.fieldName ?? "unknown" + ":")
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 50, height: 50)
+                            }
+                            .onTapGesture(count: 2) {
+                                ResultWindowView.open(with: parameter)
+                            }
+                        }
+                    }
                 }
-                .font(.system(.caption, design: .monospaced))
-                
-
-                
             }
+            .font(.system(.caption, design: .monospaced))
+
             
             HStack {
                 ActionButton(symbolName: "clear", title: "Remove") {
@@ -86,6 +106,7 @@ struct PredictionResultCell: View {
             }
             .frame(height: 30)
         }
+
     }
 }
 
@@ -118,14 +139,13 @@ struct PredictionResultListView: View {
             List {
                 ForEach(results) { result in
                         PredictionResultCell(predictionResult: result)
-                        .frame(width: 400)
                     }
 
                 }
             .border(.separator)
 
             }
-            .frame(minWidth: 250, idealWidth: 250)
+        .frame(width: .resultColumn)
             .padding(.horizontal)
         }
 }
