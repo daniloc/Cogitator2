@@ -89,10 +89,10 @@ public class Sketch: NSManagedObject {
     
     enum PredictionError: Error {
         case unableToConnect(connectionError: Error),
-             issueParsingResponse(parseError: Error),
+             issueParsingResponse(parseError: String),
              issueAtServer(serverError: String),
         invalidRequest,
-             localStorageError(fileError: Error)
+             localStorageError(fileError: String)
     }
     
     func loadSchema() async throws {

@@ -133,10 +133,6 @@ struct SketchDetailView: View {
                     
                 }
                 
-                if let prompt = sketch.prompt {
-                    PromptInputListView(prompt: prompt)
-                }
-                
                 VStack(alignment: .leading){
                     
                     predictionStatusLabel
@@ -162,7 +158,9 @@ struct SketchDetailView: View {
                     
                 }
                 
-                
+                if let prompt = sketch.prompt {
+                    PromptInputListView(prompt: prompt)
+                }
                 
             }
             .padding(.trailing, .defaultMeasure * 2)

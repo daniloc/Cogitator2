@@ -75,17 +75,6 @@ class NetworkClient: ObservableObject {
     }
     
     func handle(output: [Any], for sketch: Sketch) throws -> [PredictionResult] {
-        let fileManager = FileManager.default
-        let appSupportDirectory: URL
-        
-        do {
-           appSupportDirectory = try fileManager.url(for: .applicationSupportDirectory,
-                                                           in: .userDomainMask,
-                                                           appropriateFor: nil,
-                                                           create: true)
-        } catch {
-            throw Sketch.PredictionError.localStorageError(fileError: error)
-        }
         
         PersistenceController.saveViewContextLoggingErrors()
         let backgroundContext = PersistenceController.newBackgroundContext()
@@ -93,54 +82,8 @@ class NetworkClient: ObservableObject {
         var results: [PredictionResult] = []
         
         try output.forEach { content in
-            let components = (content as! String).components(separatedBy: ",")
-            
-            if let base64content = components.last,
-               let _ = Image(base64String: base64content), //Make sure it parses out into something readable
-               let imageData = Data(base64Encoded: base64content),
-               let contextSafeSketch = sketch.transferred(to: backgroundContext) {
-                
-                let result = PredictionResult(context: backgroundContext)
-                
-                // Create a unique file name
-                let fileName = UUID().uuidString + ".png"
-                let fileURL = appSupportDirectory.appendingPathComponent(fileName)
-                
-                do {
-                    // Write to file
-                    try imageData.write(to: fileURL)
-                    
-                    // Save file URL in Core Data object
-                    result.imageFileURL = fileURL.absoluteString
-                    
-                    contextSafeSketch.addToResults(result)
-                    contextSafeSketch.lastEdited = .now
-                    result.date = .now
-                    
-                    
-                    if let prompt = sketch.prompt {
-                        result.prompt = prompt.cloneWithoutRelationships(into: backgroundContext)
-                        
-                        prompt.orderedParameters.forEach { parameter in
-                            
-                            if let clonedParameter = parameter.cloneWithoutRelationships(into: backgroundContext) {
-                                
-                                result.prompt?.addToParameters(clonedParameter)
-                            }
-                        }
-                    }
-                    
-                    try backgroundContext.save()
-                    
-                    if let viewableResult = result.transferred(to: PersistenceController.viewContext) {
-                        results.append(viewableResult)
-                    }
-                    
-                } catch {
-                    // Handle the error
-                    print("Error saving image: \(error)")
-                    throw Sketch.PredictionError.localStorageError(fileError: error)
-                }
+            if let result = try PredictionResult.parse(content: content, sketch: sketch, context: backgroundContext) {
+                results.append(result)
             }
         }
         
@@ -186,13 +129,11 @@ class NetworkClient: ObservableObject {
             if let httpResponse = response as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 
-
-                
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     
                     guard httpResponse.statusCode < 400 else {
-                        throw Sketch.PredictionError.issueAtServer(serverError: String(describing: json))
+                        throw Sketch.PredictionError.issueAtServer(serverError: json?["detail"] as? String ?? String(describing: json))
                     }
                     
                     
@@ -205,7 +146,7 @@ class NetworkClient: ObservableObject {
                     
                 } catch {
                     print("Error during JSON serialization: \(error)")
-                    throw Sketch.PredictionError.issueParsingResponse(parseError: error)
+                    throw Sketch.PredictionError.issueParsingResponse(parseError: error.localizedDescription)
                 }
             }
             

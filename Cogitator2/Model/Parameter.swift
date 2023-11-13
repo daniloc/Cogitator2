@@ -33,11 +33,13 @@ public class Parameter: NSManagedObject, Comparable {
     }
     
     var image: Image? {
-        guard let base64ImageString else {
+        guard let imageData,
+                let nsImage = NSImage(data: imageData)
+        else {
             return nil
         }
         
-        return Image(base64String: base64ImageString)
+        return Image(nsImage: nsImage)
     }
     
     var base64ImageString: String? {

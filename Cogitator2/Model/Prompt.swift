@@ -101,5 +101,23 @@ public class Prompt: NSManagedObject {
         
         return summaryString
     }
+    
+    func duplicate(toContext: NSManagedObjectContext) -> Prompt? {
+        
+        guard let clonedPrompt = self.cloneWithoutRelationships(into: toContext)
+        else {
+            return nil
+        }
+        
+        self.orderedParameters.forEach { parameter in
+            
+            if let clonedParameter = parameter.cloneWithoutRelationships(into: toContext) {
+                
+                clonedPrompt.addToParameters(clonedParameter)
+            }
+        }
+        
+        return clonedPrompt
+    }
  
 }

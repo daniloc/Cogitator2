@@ -64,7 +64,8 @@ struct PredictionResultCell: View {
                         
                         Text(predictionResult.prompt?.summary ?? "No summary")
                             .textSelection(.enabled)
-                        
+                            .fixedSize(horizontal: false, vertical: true)
+
                     }
                 }
                 
@@ -136,15 +137,32 @@ struct PredictionResultListView: View {
             Text("Results: \(results.count)")
                 .foregroundStyle(.secondary)
             
-            List {
-                ForEach(results) { result in
+            ScrollViewReader { proxy in
+                
+                List {
+                    
+                    Divider()
+                        .foregroundColor(.clear)
+                        .id("top")
+                    
+                    ForEach(results) { result in
                         PredictionResultCell(predictionResult: result)
+                            .id(result)
                     }
-
+                    
                 }
-            .border(.separator)
-
+                .border(.separator)
+                .onChange(of: results.count) {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        withAnimation {
+                            proxy.scrollTo(results.first)
+                        }
+                   }
+                }
             }
+
+        }
         .frame(width: .resultColumn)
             .padding(.horizontal)
         }
